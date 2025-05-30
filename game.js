@@ -18081,7 +18081,7 @@ jukebox.Manager = function (_0x1ac3a7) {
     'text': "Claiming",
     'init': function (_0x14b0d5, _0x53bd46, _0x49aef9) {
       this.parent((ig.responsive ? ig.responsive.originalWidth : ig.system.width) / 0x2, (ig.responsive ? ig.responsive.originalHeight : ig.system.height) / 0x2, _0x49aef9), setTimeout(function () {
-        this.text = "Ad completed";
+        this.text = "claimed";
       }.bind(this), 0x5dc), setTimeout(function () {
         this.adSuccess();
       }.bind(this), 0x7d0), ig.game.sortEntitiesDeferred();
