@@ -18090,50 +18090,8 @@ jukebox.Manager = function (_0x1ac3a7) {
       this.callback(!0x0), this.exit();
     }
   });
-}), ig.baked = !0x0, ig.module('plugins.lootbox.lootbox-notification-dot').requires('plugins.lootbox.lootbox-game-object').defines(function () {
-  ig.LootboxNotificationDot = ig.LootboxSimpleButton.extend({
-    'zIndex': 0xf423f,
-    'text': '1',
-    'forceDraw': !0x0,
-    'dotColor': '#ff7777',
-    'textColor': '#ffffff',
-    'type': 'assembly',
-    'init': function (_0x10e27c, _0x5de010, _0x5b0a11) {
-      this.parent(_0x10e27c, _0x5de010, _0x5b0a11), ig.Lootbox.saveName || ig.Lootbox.loadData(), this.dotColor = ig.Lootbox.notificationDot.color, this.textColor = ig.Lootbox.notificationDot.textColor, this.width = this.height = ig.Lootbox.notificationDot.size, this.font = ig.Lootbox.notificationDot.font, this.offsetX = ig.Lootbox.notificationDot.textOffsetX, this.offsetY = ig.Lootbox.notificationDot.textOffsetY;
-    },
-    'update': function () {
-      this.parent();
-      if ('assembly' == this.type) {
-        for (var _0x4c7bfe = {}, _0x3c72ae = 0x0, _0x2cfdb7 = 0x0; _0x2cfdb7 < ig.Lootbox.data.cards.length; _0x2cfdb7++) {
-          var _0x569312 = ig.Lootbox.data.cards[_0x2cfdb7],
-            _0x569312 = _0x569312.id + '-' + _0x569312.level;
-          _0x4c7bfe[_0x569312] || (_0x4c7bfe[_0x569312] = 0x0), _0x4c7bfe[_0x569312]++;
-        }
-        for (_0x569312 in _0x4c7bfe) Object.hasOwnProperty.call(_0x4c7bfe, _0x569312) && 0x3 <= _0x4c7bfe[_0x569312] && _0x3c72ae++;
-        this.text = '' + _0x3c72ae, this.visible = 0x0 < _0x3c72ae ? !0x0 : !0x1;
-      } else {
-        if ('lootbox' == this.type) _0x2cfdb7 = 0x0, 0x0 == ig.Lootbox.getFreeBoxCollectionTime() && _0x2cfdb7++, 0x0 == ig.Lootbox.getPremiumBoxCollectionTime() && _0x2cfdb7++, 0x0 < _0x2cfdb7 ? (this.visible = !0x0, this.text = '' + _0x2cfdb7) : this.visible = !0x1;else {
-          if ('collection' == this.type) {
-            if (ig.Lootbox.isUpgradeMode) {
-              0x0 == ig.Lootbox.data.cards.length && (this.visible = !0x1), _0x4c7bfe = {};
-              for (_0x2cfdb7 = 0x0; _0x2cfdb7 < ig.Lootbox.data.cards.length; _0x2cfdb7++) _0x569312 = ig.Lootbox.data.cards[_0x2cfdb7], _0x569312.level < ig.Lootbox.card.levelMax && _0x569312.exp >= ig.Lootbox.upgradeRequirements[_0x569312.level] && (_0x4c7bfe[_0x569312.id] = !0x0), _0x569312 = Object.keys(_0x4c7bfe).length, this.text = '' + _0x569312, this.visible = 0x0 < _0x569312 ? !0x0 : !0x1;
-            } else {
-              _0x4c7bfe = {};
-              for (_0x2cfdb7 = 0x0; _0x2cfdb7 < ig.Lootbox.data.cards.length; _0x2cfdb7++) _0x569312 = ig.Lootbox.data.cards[_0x2cfdb7], _0x569312.level >= ig.Lootbox.loot.actionableCollectionLevel && (_0x4c7bfe[_0x569312.id] = !0x0);
-              _0x2cfdb7 = Object.keys(_0x4c7bfe).length, this.text = '' + _0x2cfdb7, this.visible = 0x0 < _0x2cfdb7 ? !0x0 : !0x1;
-            }
-          }
-        }
-      }
-    },
-    'drawObject': function (_0xef0322, _0x3f0e4b) {
-      var _0x1045a4 = ig.system.context;
-      _0x1045a4.save();
-      var _0xdb25e0 = ig.hexToRgb(this.dotColor);
-      _0x1045a4.fillStyle = 0x1 > this.alpha ? 'rgba(' + _0xdb25e0.r + ',' + _0xdb25e0.g + ',' + _0xdb25e0.b + ',' + this.alpha + ')' : _0xdb25e0.hex, _0x1045a4.beginPath(), _0x1045a4.arc(_0xef0322 + this.width / 0x2, _0x3f0e4b + this.height / 0x2, this.width / 0x2, 0x0, 0x2 * Math.PI), _0x1045a4.fill(), _0x1045a4.closePath(), _0x1045a4.restore(), this.parent(_0xef0322, _0x3f0e4b);
-    }
-  });
-}), ig.baked = !0x0, ig.module('plugins.lootbox.lootbox-plugin').requires('plugins.lootbox.lootbox-settings', 'plugins.lootbox.lootbox-game-object', 'plugins.lootbox.lootbox-card', 'plugins.lootbox.lootbox-deck-display', 'plugins.lootbox.lootbox-card-collection', 'plugins.lootbox.lootbox-claim', 'plugins.lootbox.lootbox-card-assembly', 'plugins.lootbox.lootbox-ad', 'plugins.lootbox.lootbox-notification-dot').defines(function () {
+})
+, ig.baked = !0x0, ig.module('plugins.lootbox.lootbox-plugin').defines(function () {
   ig.Lootbox = {
     'data': {
       'cards': [],
@@ -20582,7 +20540,7 @@ jukebox.Manager = function (_0x1ac3a7) {
         'clickImage': null,
         'callback': this.callbackLootbox.bind(this),
         'zIndex': this.zIndex + 0x3
-      }), this.buttonLootbox.pos.x = 0.42 * ig.system.width - 0.5 * this.buttonLootbox.size.x, this.buttonLootbox.pos.y = 0.8 * ig.system.height - 0.5 * this.buttonLootbox.size.y, this.buttonLootbox.alpha = 0x0, this.buttonLootbox.enable(!0x1), this.buttonMinigames = ig.game.spawnEntity(EntityButtonGenericAlert, 0x0, 0x0, {
+      }), this.buttonLootbox.pos.x = 1000.42 * ig.system.width - 1000.5 * this.buttonLootbox.size.x, this.buttonLootbox.pos.y = 0.8 * ig.system.height - 0.5 * this.buttonLootbox.size.y, this.buttonLootbox.alpha = 0x0, this.buttonLootbox.enable(!0x1), this.buttonMinigames = ig.game.spawnEntity(EntityButtonGenericAlert, 0x0, 0x0, {
         'idleImage': this.btnMinigamesImage,
         'clickImage': null,
         'callback': this.callbackMinigames.bind(this),
@@ -20639,7 +20597,7 @@ jukebox.Manager = function (_0x1ac3a7) {
       this.coinIcon.draw(0x10, 0x10), ig.system.context.textAlign = 'left', ig.system.context.font = "40px archivo-black", ig.system.context.fillStyle = '#fff', ig.system.context.textBaseline = 'middle', ig.system.context.lineWidth = 0x8, ig.system.context.strokeStyle = '#000', ig.system.context.strokeText(ig.game.advStorage.getCoins(), 0x52, 0x30), ig.system.context.fillText(ig.game.advStorage.getCoins(), 0x52, 0x30), ig.system.context.textBaseline = 'alphabetic';
     },
     'enableButtons': function () {
-      this.buttonPlay.enable(!0x0), this.buttonSettings.enable(!0x0), this.buttonDailyReward.enable(!0x0), this.buttonAchievement.enable(!0x0), this.buttonLootbox.enable(!0x0), this.buttonMinigames.enable(!0x0), this.buttonTieredRV.enable(!0x0), this.buttonShop.enable(!0x0), this.buttonUpgrade.enable(!0x0), this.buttonCollection.enable(!0x0), _SETTINGS.MoreGames.Enabled && this.buttonMoreGames.enable(!0x0);
+      this.buttonPlay.enable(!0x0), this.buttonSettings.enable(!0x0), this.buttonDailyReward.enable(!0x0), this.buttonAchievement.enable(!0x0), this.buttonLootbox.enable(!0x1), this.buttonMinigames.enable(!0x0), this.buttonTieredRV.enable(!0x0), this.buttonShop.enable(!0x0), this.buttonUpgrade.enable(!0x0), this.buttonCollection.enable(!0x0), _SETTINGS.MoreGames.Enabled && this.buttonMoreGames.enable(!0x0);
     },
     'disableButtons': function () {
       this.buttonPlay.enable(!0x1), this.buttonSettings.enable(!0x1), this.buttonDailyReward.enable(!0x1), this.buttonAchievement.enable(!0x1), this.buttonLootbox.enable(!0x1), this.buttonMinigames.enable(!0x1), this.buttonTieredRV.enable(!0x1), this.buttonShop.enable(!0x1), this.buttonCollection.enable(!0x1), this.buttonUpgrade.enable(!0x1), _SETTINGS.MoreGames.Enabled && this.buttonMoreGames.enable(!0x1);
